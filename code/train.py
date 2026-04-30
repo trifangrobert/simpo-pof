@@ -62,6 +62,7 @@ def main(config_path: str = "configs/simpo_1b.yaml"):
         lr_scheduler_type=t["lr_scheduler_type"],
         warmup_steps=t["warmup_steps"],
         max_steps=t.get("max_steps", -1),
+        gradient_checkpointing=t.get("gradient_checkpointing", False),
         bf16=device == "cuda",
         max_length=t["max_length"],
         max_prompt_length=t["max_prompt_length"],
