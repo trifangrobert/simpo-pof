@@ -23,6 +23,7 @@ training:
   eval_steps: 50
   report_to: wandb
   run_name: simpo-qwen-1.5b
+  optim: paged_adamw_8bit
 
 simpo:
   beta: 2.0
