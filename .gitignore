@@ -1,2 +1,16 @@
+# macOS
 .DS_Store
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Training outputs
+code/outputs/
+
+# Wandb
+wandb/
+
+# HuggingFace cache
+.cache/
