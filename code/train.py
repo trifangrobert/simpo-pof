@@ -57,6 +57,7 @@ def main(config_path: str = "configs/simpo_1b.yaml"):
         output_dir=t["output_dir"],
         num_train_epochs=t["num_train_epochs"],
         per_device_train_batch_size=t["per_device_train_batch_size"],
+        per_device_eval_batch_size=t.get("per_device_eval_batch_size", 1),
         gradient_accumulation_steps=t["gradient_accumulation_steps"],
         learning_rate=t["learning_rate"],
         lr_scheduler_type=t["lr_scheduler_type"],
