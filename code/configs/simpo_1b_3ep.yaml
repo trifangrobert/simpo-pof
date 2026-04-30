@@ -1,0 +1,33 @@
+model:
+  name: meta-llama/Llama-3.2-1B-Instruct
+
+data:
+  n_train: 60000   # effectively the full dataset (~50k after filtering)
+  n_test: 2000     # full test set
+
+training:
+  output_dir: outputs/simpo-llama-1b-3ep
+  num_train_epochs: 3
+  per_device_train_batch_size: 2
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16       # effective batch size = 32
+  learning_rate: 1.0e-6
+  lr_scheduler_type: cosine
+  warmup_steps: 100
+  bf16: true
+  gradient_checkpointing: true
+  max_length: 512
+  max_prompt_length: 256
+  logging_steps: 10
+  save_steps: 500
+  eval_steps: 50
+  report_to: wandb
+  run_name: simpo-llama-1b-3ep
+
+simpo:
+  beta: 2.0
+  gamma: 0.5
+
+wandb:
+  project: simpo
+  run_name: simpo-llama-1b-3ep
