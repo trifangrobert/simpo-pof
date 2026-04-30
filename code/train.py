@@ -75,6 +75,7 @@ def main(config_path: str = "configs/simpo_1b.yaml"):
         beta=s["beta"],
         gamma_beta_ratio=s["gamma"] / s["beta"],
         remove_unused_columns=False,
+        optim=t.get("optim", "adamw_torch"),
     )
 
     trainer = SimPOTrainer(
