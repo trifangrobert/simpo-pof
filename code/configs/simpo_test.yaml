@@ -1,0 +1,25 @@
+model:
+  name: meta-llama/Llama-3.2-1B-Instruct
+
+data:
+  n_train: 16
+  n_test: 8
+
+training:
+  output_dir: outputs/simpo-test
+  num_train_epochs: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  learning_rate: 1.0e-6
+  lr_scheduler_type: cosine
+  warmup_steps: 2
+  max_length: 512
+  max_prompt_length: 256
+  logging_steps: 1
+  save_steps: 50
+  eval_steps: 4
+  max_steps: 4
+
+simpo:
+  beta: 2.0
+  gamma: 0.5
