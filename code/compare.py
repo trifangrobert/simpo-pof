@@ -33,11 +33,8 @@ def load_model(model_path: str, device: str):
 
 def generate(model, tokenizer, prompt: str, device: str, max_new_tokens: int = 300) -> str:
     messages = [{"role": "user", "content": prompt}]
-    input_ids = tokenizer.apply_chat_template(
-        messages,
-        add_generation_prompt=True,
-        return_tensors="pt",
-    ).to(device)
+    token_ids = tokenizer.apply_chat_template(messages, add_generation_prompt=True)
+    input_ids = torch.tensor([token_ids]).to(device)
     with torch.no_grad():
         output_ids = model.generate(
             input_ids,
